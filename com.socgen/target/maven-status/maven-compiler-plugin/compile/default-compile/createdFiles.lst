@@ -1,0 +1,13 @@
+com/socgen/exception/ItemNotFoundException.class
+com/socgen/exception/CategoryNotFoundException.class
+com/socgen/dataloader/IDataLoader.class
+com/socgen/exception/InvalidFormatException.class
+com/socgen/dataloader/DefaultDataLoader.class
+com/socgen/exception/BrandNotFoundException.class
+com/socgen/utils/CommonUtils.class
+com/socgen/utils/StoreCalculator.class
+com/socgen/model/Category.class
+com/socgen/model/Brand.class
+com/socgen/dataloader/DataStore.class
+com/socgen/Main.class
+com/socgen/model/InventoryItem.class

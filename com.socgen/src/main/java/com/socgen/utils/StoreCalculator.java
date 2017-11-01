@@ -1,5 +1,6 @@
 package com.socgen.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,9 +21,11 @@ public class StoreCalculator {
 		return finalPrice;
 	}
 	
-	public static void calculateTotal(List<String> choiceList,List<InventoryItem> items) throws Exception{
+	public static List<String> calculateTotal(List<String> choiceList,List<InventoryItem> items) throws Exception{
 
 		float total = 0;
+		
+		List<String> result = new ArrayList<String>();
 
 		for (String choice : choiceList) {
 			String[] tokens = choice.split(",");
@@ -39,9 +42,11 @@ public class StoreCalculator {
 					 throw new ItemNotFoundException("Item" + id + "not found in inventory");
 				}
 			}
-			System.out.println("Result for choice " + choice + " is " + total);
+			result.add("Result for choice " + choice + " is " + total);
 			total = 0;
 		}
+		
+		return result;
 
 	}
 

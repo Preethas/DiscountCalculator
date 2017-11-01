@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import com.socgen.dataloader.DataStore;
 import com.socgen.dataloader.DefaultDataLoader;
+import com.socgen.exception.InvalidArgumentException;
 import com.socgen.model.InventoryItem;
 import com.socgen.utils.StoreCalculator;
 
@@ -13,10 +14,14 @@ public class Main {
 	public static void main(String[] args) {
 
 		try {
-
-			DataStore store = new DataStore(new DefaultDataLoader(), "/Users/srinivasan/inventory.txt");
-			store.init();
-			readInput(store);
+         
+            if (args.length > 0 && args[0] != null && args[0].length()>0){
+			 DataStore store = new DataStore(new DefaultDataLoader(),args[0]);
+			 store.init();
+			 processResult(store);
+            }else {
+            	throw new InvalidArgumentException("Please enter inventory file path");
+            }
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -24,7 +29,7 @@ public class Main {
 
 	}
 
-	static void readInput(DataStore store) throws Exception {
+	static void processResult(DataStore store) throws Exception {
 
 		List<InventoryItem> items = store.getInventory();
 		// Display Inventory
@@ -42,12 +47,13 @@ public class Main {
 		List<String> choiceList = new ArrayList<String>();
 		while (i < cnt) {
 			System.out.println();
-			System.out.println("Enter product ids - example 1,2 : ");
+			System.out.println("Enter product ids - {example 1,2}  : ");
 			choiceList.add(reader.next());
 			i++;
 		}
 
-		StoreCalculator.calculateTotal(choiceList, items);
+		List<String> results = StoreCalculator.calculateTotal(choiceList, items);
+		results.forEach(System.out::println);
 	}
 
 }

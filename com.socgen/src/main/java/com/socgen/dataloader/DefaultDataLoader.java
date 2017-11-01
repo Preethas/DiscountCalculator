@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 
 import com.socgen.exception.BrandNotFoundException;
 import com.socgen.exception.CategoryNotFoundException;
+import com.socgen.exception.InvalidFormatException;
 import com.socgen.model.Brand;
 import com.socgen.model.Category;
 import com.socgen.model.InventoryItem;
@@ -100,13 +101,14 @@ public class DefaultDataLoader implements IDataLoader{
 	}
 	
 	
-	private List<InventoryItem> createInventoryList(List<String> inventoryStrList,List<Brand> brands,List<Category> categories) throws BrandNotFoundException, CategoryNotFoundException{
+	private List<InventoryItem> createInventoryList(List<String> inventoryStrList,List<Brand> brands,List<Category> categories) throws Exception{
 		
 
 		List<InventoryItem> inventoryItems = new ArrayList<InventoryItem>();
 		
 		for (String line : inventoryStrList){
 			String[] tokens = line.split(",");
+			validateTokens(tokens);
 			// Every line is of the form 1, Arrow,Shirts,800
 			int id = Integer.parseInt(tokens[0].trim());
 			
@@ -130,6 +132,37 @@ public class DefaultDataLoader implements IDataLoader{
 		
 		return inventoryItems;
 	}
+	
+	private void validateTokens(String[] tokens) throws Exception{
+		
+		if (tokens.length < 4){
+			throw new InvalidFormatException("Please check the format of the inventory file");
+		}
+		
+		if (isEmpty(tokens[0])){
+			throw new InvalidFormatException("Please check the format of the inventory file : id is missing");
+		}
+		
+		if (isEmpty(tokens[1])){
+			throw new InvalidFormatException("Please check the format of the inventory file : brand is missing");
+		}
+		
+		if (isEmpty(tokens[2])){
+			throw new InvalidFormatException("Please check the format of the inventory file : category is missing");
+		}
+		
+		if (isEmpty(tokens[3])){
+			throw new InvalidFormatException("Please check the format of the inventory file : price is missing");
+		}
+	}
+	
+	private boolean isEmpty(String str){
+		if (str == null || str.trim().length() == 0){
+			return true;
+		}
+		return false;
+	}
+	
 	
 	private Brand createBrand(String name,int discount){
 		return new Brand(name,discount);
