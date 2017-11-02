@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import com.socgen.dataloader.DataStore;
 import com.socgen.dataloader.DefaultDataLoader;
-import com.socgen.discountrules.IDiscountCalculator;
 import com.socgen.exception.InvalidArgumentException;
 import com.socgen.exception.ItemNotFoundException;
 import com.socgen.model.InventoryItem;
@@ -53,9 +52,8 @@ public class Main {
 			System.out.println();
 			System.out.println("Enter product ids - {example 1,2}  : ");
 			String choice = reader.next();
-			boolean isValid = CommonUtils.validateInputChoice(choice, items);
-			if (!isValid) throw new ItemNotFoundException("Please check the input");
-			choiceList.add(reader.next());
+			CommonUtils.validateInputChoice(choice, items);
+			choiceList.add(choice);
 			i++;
 		}
 		StoreManager mgr = new StoreManager();
