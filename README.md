@@ -69,12 +69,12 @@ backpressure.
 </p>  
 
 
-<p>
-  <b> IRule </b>  : This interface is used to calculate percentage discounts.
-  <b> BrandDiscountCalculatorRule </b> : Calculates discount from the brand.
-  <b> CategoryMaximumDiscountRule </b> : Calculates discount based on category.
-  <b> DiscountCalculator </b> : Contains the logic to calculate discount by using a combination of rules.
-</p>  
+
+ <p> <b> IRule </b>  : This interface is used to calculate percentage discounts.</p>
+ <p> <b> BrandDiscountCalculatorRule </b> : Calculates discount from the brand.</p>
+ <p> <b> CategoryMaximumDiscountRule </b> : Calculates discount based on category.</p>
+ <p> <b> DiscountCalculator </b> : Contains the logic to calculate discount by using a combination of rules.</p>
+  
 
 
 <p>
