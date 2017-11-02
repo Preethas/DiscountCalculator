@@ -21,7 +21,7 @@ public class DataStoreTest extends TestCase {
 	/**
 	 * Tests that the store can be initialized with an inventory file in proper format
 	 */
-	
+	@Test
 	public void testForWorkingInventoryFile(){
 		ClassLoader classLoader = getClass().getClassLoader();
 		File file = new File(classLoader.getResource("inventory.txt").getFile());
@@ -51,7 +51,7 @@ public class DataStoreTest extends TestCase {
 	 * But the Brands and Category are loaded by the program
 	 * So we need to check for discrepancy between the brands in the file and the ones loaded by the program
 	 */
-	
+	@Test
 	public void testForUnknownBrandsInInventoryFile(){
 		ClassLoader classLoader = getClass().getClassLoader();
 		File file = new File(classLoader.getResource("inventory_unknown_brand.txt").getFile());
@@ -94,7 +94,7 @@ public class DataStoreTest extends TestCase {
 	/**
 	 * Test for empty brand name in inventory file
 	 */
-
+    @Test
 	public void testForMissingBrandsInInventoryFile(){
 		ClassLoader classLoader = getClass().getClassLoader();
 		File file = new File(classLoader.getResource("inventory_missing_brand.txt").getFile());
@@ -114,7 +114,7 @@ public class DataStoreTest extends TestCase {
 	/**
 	 * Test for empty category name in inventory file
 	 */
-
+    @Test
 	public void testForMissingCategoryInInventoryFile(){
 		
 		ClassLoader classLoader = getClass().getClassLoader();

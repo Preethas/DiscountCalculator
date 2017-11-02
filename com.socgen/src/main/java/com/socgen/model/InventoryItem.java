@@ -1,6 +1,10 @@
 package com.socgen.model;
 
-import com.socgen.exception.CategoryNotFoundException;
+/**
+ * This class represents an inventory item
+ * @author srinivasan
+ *
+ */
 
 public class InventoryItem {
 

@@ -2,6 +2,18 @@ package com.socgen.model;
 
 import java.util.List;
 
+/** 
+ * This class represents a Category of an item
+ * Every category will have a reference to its parent and children
+ * Sample { Mens wear -> Shirts 
+ *                        -> Formal wear 
+ *                        -> Casual wear
+ *                        
+ *        }
+ *           
+ * @author srinivasan
+ *
+ */
 public class Category {
 	
 	String name;

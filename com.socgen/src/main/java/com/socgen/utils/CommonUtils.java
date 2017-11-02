@@ -1,9 +1,12 @@
 package com.socgen.utils;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.socgen.exception.ItemNotFoundException;
 import com.socgen.model.Brand;
 import com.socgen.model.Category;
+import com.socgen.model.InventoryItem;
 
 
 public class CommonUtils {
@@ -34,6 +37,22 @@ public class CommonUtils {
 	public static Category searchCategory(List<Category> categoryList,String categoryName){
 		Category category = searchRecursively(categoryList,categoryName);
 		return category;
+	}
+	
+	public static boolean validateInputChoice(String choice,List<InventoryItem> items) throws ItemNotFoundException{
+		boolean isValid = false;
+		if (choice != null && choice.length()>0){
+			String[] tokens = choice.split(",");
+			for (String token : tokens){
+				int id = Integer.parseInt(token);
+				Optional<InventoryItem> inventoryitem = items.stream().filter(item -> item.getId() == id).findFirst();
+                if (inventoryitem.isPresent()){
+                	isValid = true;
+                }
+			}
+		} 
+		
+		return isValid;
 	}
 	
 	private static Category searchRecursively(List<Category> categoryList,String categoryName){

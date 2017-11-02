@@ -11,8 +11,9 @@ import org.junit.Test;
 
 import com.socgen.dataloader.DataStore;
 import com.socgen.dataloader.DefaultDataLoader;
+import com.socgen.discountrules.DefaultDiscountCalculator;
 import com.socgen.model.InventoryItem;
-import com.socgen.utils.StoreCalculator;
+import com.socgen.utils.StoreManager;
 
 public class StoreCalculatorTest {
 
@@ -30,13 +31,13 @@ public class StoreCalculatorTest {
 			int id = 1;
 			Optional<InventoryItem> inventoryitem = inventoryList.stream().filter(item -> item.getId() == id).findFirst();
 
-			float discount = StoreCalculator.calculateDiscountedPrice(inventoryitem.get());
+			float discount = new DefaultDiscountCalculator(inventoryitem.get()).calculateDiscountedPrice();
 			
 			assertEquals(640.0f,discount);
 		
 			inventoryitem = inventoryList.stream().filter(item -> item.getId() == 2).findFirst();
 
-			discount = StoreCalculator.calculateDiscountedPrice(inventoryitem.get());
+			discount = new DefaultDiscountCalculator(inventoryitem.get()).calculateDiscountedPrice();
 			
 			assertEquals(560.0f,discount);
 			
@@ -53,13 +54,14 @@ public class StoreCalculatorTest {
 		File file = new File(classLoader.getResource("inventory.txt").getFile());
 		
 		DataStore store = new DataStore(new DefaultDataLoader(),file.getPath());
+		StoreManager storeMgr = new StoreManager();
 		try {
 			store.init();
 			List<InventoryItem> items = store.getInventory();
 			
 			List<String> choiceList = Arrays.asList("1,5");
 			
-			List<String> results = StoreCalculator.calculateTotal(choiceList, items);
+			List<String> results = storeMgr.calculateTotal(choiceList, items);
 			assertEquals("Result for choice 1,5 is 2140.0",results.get(0));
 			
 			
