@@ -1,4 +1,4 @@
-<h1> Prerequisite </h1>
+<h1> Prerequisites </h1>
 
 <ul>
   <li> The project uses Java 8 </li>
@@ -6,7 +6,7 @@
 </ul>  
 
 
-<h1> How to run the project </h1>
+<h1> To run the project </h1>
 
 <ul>
 <li> Clone the project into your machine using the cmd git clone https://github.com/Preethas/DiscountCalculator.git   </li>
