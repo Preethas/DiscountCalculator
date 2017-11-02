@@ -2,7 +2,7 @@
 
 <ul>
   <li> The project uses Java 8 </li>
-  <li> This project uses maven to build . Install Apache Maven 3.5 on your machine </li>
+  <li> This project uses maven to build . ( Apache Maven 3.5 ) </li>
 </ul>  
 
 
