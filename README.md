@@ -67,3 +67,7 @@
 </p>  
 
 
+<p>
+  <b> StoreManager </b> : Calculates the final discounted price.
+</p>  
+
