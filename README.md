@@ -53,6 +53,10 @@
 <h1>  Design </h1>
 
 <p>
+  <b> Main </b> : Entry point to the application.
+</p>  
+
+<p>
   <b>  Data Store </b>  :  It is the model of the application and is populated by the DataLoader.
 </p>  
 
