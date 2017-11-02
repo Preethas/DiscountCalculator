@@ -1,8 +1,15 @@
+<h1> Prerequisite </h1>
+
+<ul>
+  <li> The project uses Java 8 </li>
+  <li> This project uses maven to build . Install Apache Maven 3.5 on your machine </li>
+</ul>  
+
+
 <h1> How to run the project </h1>
 
 <ul>
 <li> Clone the project into your machine using the cmd git clone https://github.com/Preethas/DiscountCalculator.git   </li>
-<li> This project uses maven to build . Install Apache Maven 3.5 on your machine </li>
 <li> 'cd' to directory com.socgen on a terminal </li>
 <li> Run mvn clean install </li>
 <li> The jar file for the project will be built </li>
