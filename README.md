@@ -26,9 +26,7 @@
 
 <h1> Scope for Improvement </h1>
 
-<p> <b> Dealing with backpressure </b> : If this was a real time application then the application would need to handle millions of request. The user order can be an observable and we can use reactive programming (RxJava) to deal with
-backpressure.  
-  
+<p> <b> Dealing with backpressure </b> : If this was a real time application then the application would need to handle millions of requests. The user order can be thought of as an observable and we can use reactive programming (RxJava) to deal with backpressure. 
 </p>  
 
 <p> <b> Parallel processing </b> : Every order (list of user choices) can be processed in paralell using java concurrency utilities like ExceutorService.This way the output can be calculated at a faster rate.
