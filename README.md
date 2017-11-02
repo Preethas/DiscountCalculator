@@ -39,16 +39,19 @@
 
 <p>
   <b>  Data Store </b>  :  It is the model of the application and is populated by the DataLoader.
-  
 </p>  
 
 <p>
   <b>  IDataLoader </b>  :  It defines the interface that is used to load brands , categories and inventory into the DataStore
-  <b>   DefaultDataLoader </b> : The class loads some predefined data for brands and categories . Ideally this
+</p> 
+
+<p>
+  <b>  DefaultDataLoader </b> : The class loads some predefined data for brands and categories . Ideally this
   data will come from a DB . We can write different implementation of IDataLoader depending on where we want to load the data 
   from. Example - JsonDataLoader , SqlDataLoader
-  
-</p> 
+</p>  
+
+
 
 
 
