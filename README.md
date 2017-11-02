@@ -59,6 +59,11 @@
 </p>  
 
 
-
+<p>
+  <b> IRule </b>  : This interface is used to calculate percentage discounts.
+  <b> BrandDiscountCalculatorRule </b> : Calculates discount from the brand.
+  <b> CategoryMaximumDiscountRule </b> : Calculates discount based on category.
+  <b> DiscountCalculator </b> : Contains the logic to calculate discount by using a combination of rules.
+</p>  
 
 
